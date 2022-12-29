@@ -26,4 +26,14 @@ html, body, main {
     height:100%;
     width:100%;
     background: #87CEFA;
+    cursor:grab;
+}
+
+#startbtn::after {
+    content:"CLIQUE ICI";
+    color:red;
+    position:absolute;
+    top:45%;
+    left:40%;
+    font-size: 5em;
 }

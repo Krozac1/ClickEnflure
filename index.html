@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+<title>index</title>
+<link  href="css/style.css" rel = "stylesheet">
+<script src="https://unpkg.com/css-doodle@0.26.3/css-doodle.min.js"></script>
+</head>
+
+
+<body>
+   <div id="startbtn"></div>
+
+<!-- The actual content, hidden by default -->
+    <div id="content" style="display: none;">
+        <div id = "gif"></div>
+    </div>
+
+    <!-- This is displayed when the user has pressed the start button, but the music is still loading -->
+    <div id="loader" style="display: none;">
+      <p>Loading ...</p>
+    </div>
+
+    <!-- The music. It is started by the Javascript -->
+    <audio id="music" src="img/super-mario-64-music-bowsers-theme.mp3" style="display: none;" loop></audio>
+</body>
+
+
+
+
+
+
+
+
+<script>
+const startbtn = document.getElementById("startbtn");
+const content = document.getElementById("content");
+const loader = document.getElementById("loader");
+const music = document.getElementById("music");
+
+//Add an event listner to the start button
+startbtn.addEventListener("click", () => {
+  //Show the loader and hide the button
+  loader.style.display = "";
+  startbtn.style.display = "none";
+  //Wait for the music to start
+  music.play().then(() => {
+    //Hide the loader and show the content
+    content.style.display = "";
+    loader.style.display = "none";
+  });
+});
+</script>
